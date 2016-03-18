@@ -1,4 +1,74 @@
-// MARK: - Mocks generated from file: /Users/Joshua/Documents/Libraries/CuckooTestDummy/CuckooTestDummy/TestDummy.swift at 2016-03-18 18:21:00 +0000
+// MARK: - Mocks generated from file: /Users/Joshua/Documents/Libraries/CuckooTestDummy/CuckooTestDummy/TestDummyProtocol.swift at 2016-03-18 18:36:38 +0000
+
+//
+//  TestDummyProtocol.swift
+//  CuckooTestDummy
+//
+//  Created by Joshua Greene on 3/18/16.
+//  Copyright © 2016 JRG-Developer. All rights reserved.
+//
+
+import Foundation
+
+
+import Cuckoo
+@testable import CuckooTestDummy
+
+internal class MockTestDummyProtocol: TestDummyProtocol, Cuckoo.Mock {
+    internal let manager: Cuckoo.MockManager<__StubbingProxy_TestDummyProtocol, __VerificationProxy_TestDummyProtocol> = Cuckoo.MockManager()
+
+    private var observed: TestDummyProtocol?
+
+    internal required init() {
+        observed = nil
+    }
+
+    internal required init(spyOn victim: TestDummyProtocol) {
+        observed = victim
+    }
+    internal var name: String {
+        get {
+            return manager.getter("name", original: observed.map { o in return { () -> String in o.name } })()
+        }
+    }
+    internal var url: NSURL {
+        get {
+            return manager.getter("url", original: observed.map { o in return { () -> NSURL in o.url } })()
+        }
+    }
+
+    internal struct __StubbingProxy_TestDummyProtocol: Cuckoo.StubbingProxy {
+        let handler: Cuckoo.StubbingHandler
+    
+        internal init(handler: Cuckoo.StubbingHandler) {
+            self.handler = handler
+        }
+        var name: ToBeStubbedReadOnlyProperty<String> {
+            return handler.stubReadOnlyProperty("name")
+        }
+        var url: ToBeStubbedReadOnlyProperty<NSURL> {
+            return handler.stubReadOnlyProperty("url")
+        }
+    
+    }
+
+    internal struct __VerificationProxy_TestDummyProtocol: Cuckoo.VerificationProxy {
+        let handler: Cuckoo.VerificationHandler
+    
+        internal init(handler: Cuckoo.VerificationHandler) {
+            self.handler = handler
+        }
+        var name: VerifyReadOnlyProperty<String> {
+            return handler.verifyReadOnlyProperty("name")
+        }
+        var url: VerifyReadOnlyProperty<NSURL> {
+            return handler.verifyReadOnlyProperty("url")
+        }
+    
+    }
+}
+
+// MARK: - Mocks generated from file: /Users/Joshua/Documents/Libraries/CuckooTestDummy/CuckooTestDummy/TestDummy.swift at 2016-03-18 18:36:38 +0000
 
 //
 //  TestDummy.swift

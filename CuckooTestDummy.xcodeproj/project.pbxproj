@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		42AE6C271C9C7E75001776DC /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AE6C261C9C7E75001776DC /* GeneratedMocks.swift */; };
+		42AE6C291C9C804F001776DC /* TestDummyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AE6C281C9C804F001776DC /* TestDummyProtocol.swift */; };
 		42CDA04E1C9C7BC800E29AD5 /* CuckooTestDummy.h in Headers */ = {isa = PBXBuildFile; fileRef = 42CDA04D1C9C7BC800E29AD5 /* CuckooTestDummy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		42CDA0551C9C7BC800E29AD5 /* CuckooTestDummy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42CDA04A1C9C7BC800E29AD5 /* CuckooTestDummy.framework */; };
 		42CDA0651C9C7BDD00E29AD5 /* TestDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDA0641C9C7BDD00E29AD5 /* TestDummy.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		42AE6C261C9C7E75001776DC /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
+		42AE6C281C9C804F001776DC /* TestDummyProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDummyProtocol.swift; sourceTree = "<group>"; };
 		42CDA04A1C9C7BC800E29AD5 /* CuckooTestDummy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CuckooTestDummy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42CDA04D1C9C7BC800E29AD5 /* CuckooTestDummy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CuckooTestDummy.h; sourceTree = "<group>"; };
 		42CDA04F1C9C7BC800E29AD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			children = (
 				42CDA04D1C9C7BC800E29AD5 /* CuckooTestDummy.h */,
 				42CDA0641C9C7BDD00E29AD5 /* TestDummy.swift */,
+				42AE6C281C9C804F001776DC /* TestDummyProtocol.swift */,
 				42CDA04F1C9C7BC800E29AD5 /* Info.plist */,
 			);
 			path = CuckooTestDummy;
@@ -248,7 +251,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# This script assumes you have home brew installed; see http://brew.sh/\n\n# Find the installed Cuckoo version\nCUCKOO_VERSION=$(grep '\\- Cuckoo' \"${PROJECT_DIR}/Podfile.lock\" | grep -o '[0-9]\\{1,\\}\\.[0-9]\\{1,\\}\\.[0-9]\\{1,\\}')\n\n# Ignore Xcode's environment\nalias run=\"env -i PATH=${PATH}, HOME=${HOME}\"\n\ncuckoo runtime --check $CUCKOO_VERSION\ncuckooReturn=$?\n\nif [ $cuckooReturn == 1 ]; then\n# If cuckoo generator already installed, update local brew repo and upgrade to latest Cuckoo generator\nrun brew update\nrun brew upgrade SwiftKit/cuckoo/cuckoo\n\nelif [ $cuckooReturn == 127 ]; then\n# Else if cuckoo generator not installed, install it\nrun brew install SwiftKit/cuckoo/cuckoo\nfi\n\n# Define output file; change \"${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name\nOUTPUT_FILE=\"./${PROJECT_NAME}Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = ${OUTPUT_FILE}\"\n\n# Define input directory; change \"${PROJECT_NAME}\" to your project's root source folder, if it's not the default name\nINPUT_DIR=\"./${PROJECT_NAME}\"\necho \"Mocks Input Directory = ${INPUT_DIR}\"\n\n# Generate mock files; include as many input files as you'd like to create mocks for\ncuckoo generate --runtime $CUCKOO_VERSION --testable ${PROJECT_NAME} \\\n--output ${OUTPUT_FILE} \\\n${INPUT_DIR}/TestDummy.swift\n\n# After running this once, locate `GeneratedMocks.swift` and drag it into your tests project in Xcode";
+			shellScript = "# This script assumes you have home brew installed; see http://brew.sh/\n\n# Find the installed Cuckoo version\nCUCKOO_VERSION=$(grep '\\- Cuckoo' \"${PROJECT_DIR}/Podfile.lock\" | grep -o '[0-9]\\{1,\\}\\.[0-9]\\{1,\\}\\.[0-9]\\{1,\\}')\n\n# Ignore Xcode's environment\nalias run=\"env -i PATH=${PATH}, HOME=${HOME}\"\n\ncuckoo runtime --check $CUCKOO_VERSION\ncuckooReturn=$?\n\nif [ $cuckooReturn == 1 ]; then\n# If cuckoo generator already installed, update local brew repo and upgrade to latest Cuckoo generator\nrun brew update\nrun brew upgrade SwiftKit/cuckoo/cuckoo\n\nelif [ $cuckooReturn == 127 ]; then\n# Else if cuckoo generator not installed, install it\nrun brew install SwiftKit/cuckoo/cuckoo\nfi\n\n# Define output file; change \"${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name\nOUTPUT_FILE=\"./${PROJECT_NAME}Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = ${OUTPUT_FILE}\"\n\n# Define input directory; change \"${PROJECT_NAME}\" to your project's root source folder, if it's not the default name\nINPUT_DIR=\"./${PROJECT_NAME}\"\necho \"Mocks Input Directory = ${INPUT_DIR}\"\n\n# Generate mock files; include as many input files as you'd like to create mocks for\ncuckoo generate --runtime $CUCKOO_VERSION --testable ${PROJECT_NAME} \\\n--output ${OUTPUT_FILE} \\\n${INPUT_DIR}/TestDummyProtocol.swift \\\n${INPUT_DIR}/TestDummy.swift\n\n# After running this once, locate `GeneratedMocks.swift` and drag it into your tests project in Xcode";
 		};
 		6D342A5E349FED728E9D6E10 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -287,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42AE6C291C9C804F001776DC /* TestDummyProtocol.swift in Sources */,
 				42CDA0651C9C7BDD00E29AD5 /* TestDummy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
