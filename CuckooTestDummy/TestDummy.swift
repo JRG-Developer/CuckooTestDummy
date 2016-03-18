@@ -22,8 +22,8 @@ class TestDummy: NSObject, NSCoding {
     
     convenience required init?(coder aDecoder: NSCoder) {
         
-        guard let name = aDecoder.valueForKey("name") as? String,
-            let url = aDecoder.valueForKey("url") as? NSURL else {
+        guard let name = aDecoder.decodeObjectForKey("name") as? String,
+            let url = aDecoder.decodeObjectForKey("url") as? NSURL else {
                 return nil
         }
         

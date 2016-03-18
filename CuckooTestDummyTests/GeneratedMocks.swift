@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: /Users/Joshua/Documents/Libraries/CuckooTestDummy/CuckooTestDummy/TestDummyProtocol.swift at 2016-03-18 18:36:38 +0000
+// MARK: - Mocks generated from file: /Users/Joshua/Documents/Libraries/CuckooTestDummy/CuckooTestDummy/TestDummyProtocol.swift at 2016-03-18 20:19:42 +0000
 
 //
 //  TestDummyProtocol.swift
@@ -68,7 +68,7 @@ internal class MockTestDummyProtocol: TestDummyProtocol, Cuckoo.Mock {
     }
 }
 
-// MARK: - Mocks generated from file: /Users/Joshua/Documents/Libraries/CuckooTestDummy/CuckooTestDummy/TestDummy.swift at 2016-03-18 18:36:38 +0000
+// MARK: - Mocks generated from file: /Users/Joshua/Documents/Libraries/CuckooTestDummy/CuckooTestDummy/TestDummy.swift at 2016-03-18 20:19:42 +0000
 
 //
 //  TestDummy.swift
