@@ -1,0 +1,10 @@
+PODS:
+  - Cuckoo (0.3.0)
+
+DEPENDENCIES:
+  - Cuckoo (~> 0.3)
+
+SPEC CHECKSUMS:
+  Cuckoo: a24f5c135a7bcb6194e0c410008c9ea161f532da
+
+COCOAPODS: 0.39.0
